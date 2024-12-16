@@ -13,6 +13,7 @@ public class GameWindow {
 
         frame = new JFrame();
 
+        frame.setTitle("2D GAME");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(gamePanel);
         frame.setLocationRelativeTo(null);
