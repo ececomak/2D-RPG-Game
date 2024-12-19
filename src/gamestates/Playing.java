@@ -24,7 +24,7 @@ public class Playing extends State implements Statemethods{
     private int xLvlOffset;
     private int leftBorder = (int) (0.2 * Game.GAME_WIDTH);
     private int rightBorder = (int) (0.8 * Game.GAME_WIDTH);
-    private int lvlTilesWide = LoadSave.GetLevelData()[0].length;
+    private int lvlTilesWide = LoadSave.getLevelData()[0].length;
     private int maxLvlOffsetX = lvlTilesWide * Game.TILES_SIZE - Game.GAME_WIDTH;
 
     private BufferedImage backgroundImg, bigCloud, smallCloud;
@@ -35,9 +35,9 @@ public class Playing extends State implements Statemethods{
         super(game);
         initClasses();
 
-        backgroundImg = LoadSave.GetSpriteAtlas(LoadSave.PLAYING_BG_IMG);
-        bigCloud = LoadSave.GetSpriteAtlas(LoadSave.BIG_CLOUDS);
-        smallCloud = LoadSave.GetSpriteAtlas(LoadSave.SMALL_CLOUDS);
+        backgroundImg = LoadSave.getSpriteAtlas(LoadSave.PLAYING_BG_IMG);
+        bigCloud = LoadSave.getSpriteAtlas(LoadSave.BIG_CLOUDS);
+        smallCloud = LoadSave.getSpriteAtlas(LoadSave.SMALL_CLOUDS);
         smallCloudsPos = new int[8];
         for(int i = 0; i < smallCloudsPos.length; i++)
             smallCloudsPos[i] = (int) (90 * Game.SCALE) + rnd.nextInt((int) (100 * Game.SCALE));
@@ -56,7 +56,7 @@ public class Playing extends State implements Statemethods{
         if(!paused) {
             levelManager.update();
             player.update();
-            enemyManager.update();
+            enemyManager.update(levelManager.getCurrentLevel().getLvlData());
             checkCloseToBorder();
         }else {
             pauseOverlay.update();

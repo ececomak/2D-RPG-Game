@@ -16,9 +16,9 @@ public class GameWindow {
         frame.setTitle("2D GAME");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(gamePanel);
-        frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.addWindowFocusListener(new WindowFocusListener() {
 

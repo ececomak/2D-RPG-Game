@@ -14,12 +14,12 @@ public class LevelManager {
     public LevelManager(Game game) {
         this.game = game;
         importOutsideSprites();
-        levelOne = new Level(LoadSave.GetLevelData());
+        levelOne = new Level(LoadSave.getLevelData());
 
     }
 
     private void importOutsideSprites() {
-        BufferedImage spriteSheet = LoadSave.GetSpriteAtlas(LoadSave.LEVEL_ATLAS);
+        BufferedImage spriteSheet = LoadSave.getSpriteAtlas(LoadSave.LEVEL_ATLAS);
         levelSprite = new BufferedImage[48];
         for(int j = 0; j < 4; j++)
             for(int i = 0; i < 12; i++) {

@@ -41,7 +41,7 @@ public class Player extends Entity {
 
     public void render(Graphics g, int lvlOffset) {
         g.drawImage(animations[playerAction][aniIndex], (int) (hitbox.x - xDrawOffset) - lvlOffset, (int) (hitbox.y - yDrawOffset), width, height, null);
-//      drawHitbox(g);
+//      drawHitbox(g, lvlOffset);
     }
 
     private void updateAnimationTick() {
@@ -144,7 +144,7 @@ public class Player extends Entity {
 
     private void loadAnimations() {
 
-        BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_ATLAS);
+        BufferedImage img = LoadSave.getSpriteAtlas(LoadSave.PLAYER_ATLAS);
 
         animations = new BufferedImage[9][9];
         for (int j = 0; j < animations.length; j++)

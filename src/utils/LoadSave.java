@@ -30,7 +30,7 @@ public class LoadSave {
     public static final String CRABBY_SPRITE = "EnemyCharacters/crabby_sprite.png";
 
 
-    public static BufferedImage GetSpriteAtlas(String fileName) {
+    public static BufferedImage getSpriteAtlas(String fileName) {
         BufferedImage spriteSheet = null;
         InputStream inputStream = LoadSave.class.getResourceAsStream("/" + fileName);
         try {
@@ -47,8 +47,8 @@ public class LoadSave {
         return spriteSheet;
     }
 
-    public static ArrayList<Crabby> GetCrabs() {
-        BufferedImage spriteSheet = GetSpriteAtlas(LEVEL_ONE_DATA);
+    public static ArrayList<Crabby> getCrabs() {
+        BufferedImage spriteSheet = getSpriteAtlas(LEVEL_ONE_DATA);
         ArrayList<Crabby> list = new ArrayList<>();
         for(int j = 0; j < spriteSheet.getHeight(); j++)
             for(int i = 0; i < spriteSheet.getWidth(); i++){
@@ -60,8 +60,8 @@ public class LoadSave {
         return list;
     }
 
-    public static int[][] GetLevelData() {
-        BufferedImage spriteSheet = GetSpriteAtlas(LEVEL_ONE_DATA);
+    public static int[][] getLevelData() {
+        BufferedImage spriteSheet = getSpriteAtlas(LEVEL_ONE_DATA);
         int[][] lvlData = new int[spriteSheet.getHeight()][spriteSheet.getWidth()];
 
         for(int j = 0; j < spriteSheet.getHeight(); j++)
