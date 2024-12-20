@@ -22,7 +22,7 @@ public class Constants {
         public static final int CRABBY_DRAW_OFFSET_X = (int) (26 * Game.SCALE);
         public static final int CRABBY_DRAW_OFFSET_Y = (int) (9 * Game.SCALE);
 
-        public static int GetSpriteAmount(int enemy_type, int enemy_state) {
+        public static int getSpriteAmount(int enemy_type, int enemy_state) {
             switch (enemy_type) {
             case CRABBY:
                 switch (enemy_state) {
