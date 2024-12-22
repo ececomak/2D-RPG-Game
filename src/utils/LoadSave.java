@@ -16,7 +16,7 @@ public class LoadSave {
 
     public static final String PLAYER_ATLAS = "PlayerCharacters/wind_SpriteSheet_288x128.png";
     public static final String LEVEL_ATLAS = "OutsideSprites/outside_sprites.png";
-    public static final String LEVEL_ONE_DATA = "OutsideSprites/level_one_data_long.png";
+    public static final String LEVEL_DATA = "OutsideSprites/level_data_long.png";
     public static final String MENU_BUTTONS = "OutsideSprites/button_atlas.png";
     public static final String MENU_BACKGROUND = "OutsideSprites/menu_background.png";
     public static final String BACKGROUND_OF_MENU = "OutsideSprites/background_of_menu.png";
@@ -28,7 +28,7 @@ public class LoadSave {
     public static final String BIG_CLOUDS = "OutsideSprites/big_clouds.png";
     public static final String SMALL_CLOUDS = "OutsideSprites/small_clouds.png";
     public static final String CRABBY_SPRITE = "EnemyCharacters/crabby_sprite.png";
-
+    public static final String STATUS_BAR = "OutsideSprites/health_power_bar.png";
 
     public static BufferedImage getSpriteAtlas(String fileName) {
         BufferedImage spriteSheet = null;
@@ -48,7 +48,7 @@ public class LoadSave {
     }
 
     public static ArrayList<Crabby> getCrabs() {
-        BufferedImage spriteSheet = getSpriteAtlas(LEVEL_ONE_DATA);
+        BufferedImage spriteSheet = getSpriteAtlas(LEVEL_DATA);
         ArrayList<Crabby> list = new ArrayList<>();
         for(int j = 0; j < spriteSheet.getHeight(); j++)
             for(int i = 0; i < spriteSheet.getWidth(); i++){
@@ -61,7 +61,7 @@ public class LoadSave {
     }
 
     public static int[][] getLevelData() {
-        BufferedImage spriteSheet = getSpriteAtlas(LEVEL_ONE_DATA);
+        BufferedImage spriteSheet = getSpriteAtlas(LEVEL_DATA);
         int[][] lvlData = new int[spriteSheet.getHeight()][spriteSheet.getWidth()];
 
         for(int j = 0; j < spriteSheet.getHeight(); j++)
