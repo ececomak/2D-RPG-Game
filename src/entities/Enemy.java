@@ -33,18 +33,18 @@ public abstract class Enemy extends Entity{
     }
 
     protected void firstUpdateCheck(int[][] lvlData) {
-        if (!isEntityOnFloor(hitbox, lvlData))
+        if (!IsEntityOnFloor(hitbox, lvlData))
             inAir = true;
         firstUpdate = false;
     }
 
     protected void updateInAir(int[][] lvlData) {
-        if (canMoveHere(hitbox.x, hitbox.y + fallSpeed, hitbox.width, hitbox.height, lvlData)) {
+        if (CanMoveHere(hitbox.x, hitbox.y + fallSpeed, hitbox.width, hitbox.height, lvlData)) {
             hitbox.y += fallSpeed;
             fallSpeed += gravity;
         }else {
             inAir = false;
-            hitbox.y = getEntityYPosUnderRoofOrAboveFloor(hitbox, fallSpeed);
+            hitbox.y = GetEntityYPosUnderRoofOrAboveFloor(hitbox, fallSpeed);
             tileY = (int) (hitbox.y / Game.TILES_SIZE);
         }
     }
@@ -57,8 +57,8 @@ public abstract class Enemy extends Entity{
         else
             xSpeed = walkSpeed;
 
-        if(canMoveHere(hitbox.x + xSpeed, hitbox.y, hitbox.width, hitbox.height, lvlData))
-            if(isFloor(hitbox, xSpeed, lvlData)) {
+        if(CanMoveHere(hitbox.x + xSpeed, hitbox.y, hitbox.width, hitbox.height, lvlData))
+            if(IsFloor(hitbox, xSpeed, lvlData)) {
                 hitbox.x += xSpeed;
                 return;
             }
@@ -76,7 +76,7 @@ public abstract class Enemy extends Entity{
         int playerTileY = (int) (player.getHitbox().y / Game.TILES_SIZE);
         if(playerTileY == tileY)
             if(isPlayerInRange(player)) {
-                if(isSightClear(lvlData, hitbox, player.hitbox, tileY))
+                if(IsSightClear(lvlData, hitbox, player.hitbox, tileY))
                     return true;
             }
         return false;

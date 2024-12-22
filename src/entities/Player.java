@@ -2,7 +2,7 @@ package entities;
 
 import static utils.Constants.PlayerConstants.*;
 import static utils.HelpMethods.*;
-import static utils.HelpMethods.canMoveHere;
+import static utils.HelpMethods.CanMoveHere;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
@@ -62,6 +62,13 @@ public class Player extends Entity {
         loadAnimations();
         initHitbox(x, y, (int) (31 * Game.SCALE), (int) (29 * Game.SCALE));
         initAttackBox();
+    }
+
+    public void setSpawn(Point spawn) {
+        this.x = spawn.x;
+        this.y = spawn.y;
+        hitbox.x = x;
+        hitbox.y = y;
     }
 
     private void initAttackBox() {
@@ -198,17 +205,17 @@ public class Player extends Entity {
             flipW = 1;
         }
         if(!inAir)
-            if(!isEntityOnFloor(hitbox, lvlData))
+            if(!IsEntityOnFloor(hitbox, lvlData))
                 inAir = true;
 
 
         if(inAir) {
-            if(canMoveHere(hitbox.x, hitbox.y + airSpeed, hitbox.width, hitbox.height, lvlData)) {
+            if(CanMoveHere(hitbox.x, hitbox.y + airSpeed, hitbox.width, hitbox.height, lvlData)) {
                 hitbox.y += airSpeed;
                 airSpeed += gravity;
                 updateXPos(xSpeed);
             }else {
-                hitbox.y = getEntityYPosUnderRoofOrAboveFloor(hitbox, airSpeed);
+                hitbox.y = GetEntityYPosUnderRoofOrAboveFloor(hitbox, airSpeed);
                 if(airSpeed > 0)
                     resetInAir();
                 else
@@ -234,10 +241,10 @@ public class Player extends Entity {
     }
 
     private void updateXPos(float xSpeed) {
-        if (canMoveHere(hitbox.x + xSpeed, hitbox.y, hitbox.width, hitbox.height, lvlData)) {
+        if (CanMoveHere(hitbox.x + xSpeed, hitbox.y, hitbox.width, hitbox.height, lvlData)) {
             hitbox.x += xSpeed;
         }else {
-            hitbox.x = getEntityXPosNextToWall(hitbox, xSpeed);
+            hitbox.x = GetEntityXPosNextToWall(hitbox, xSpeed);
         }
     }
 
@@ -266,7 +273,7 @@ public class Player extends Entity {
 
     public void loadLvlData(int[][] lvlData) {
         this.lvlData = lvlData;
-        if(!isEntityOnFloor(hitbox, lvlData))
+        if(!IsEntityOnFloor(hitbox, lvlData))
             inAir = true;
     }
 
@@ -328,7 +335,7 @@ public class Player extends Entity {
         hitbox.x = x;
         hitbox.y = y;
 
-        if(!isEntityOnFloor(hitbox, lvlData))
+        if(!IsEntityOnFloor(hitbox, lvlData))
             inAir = true;
     }
 }
