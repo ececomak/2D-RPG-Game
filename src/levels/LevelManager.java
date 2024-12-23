@@ -25,7 +25,6 @@ public class LevelManager {
         lvlIndex++;
         if(lvlIndex >= levels.size()) {
             lvlIndex = 0;
-            System.out.println("No more levels! Game Completed!");
             Gamestate.state = Gamestate.MENU;
         }
 

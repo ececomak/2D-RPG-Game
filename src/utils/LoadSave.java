@@ -1,8 +1,5 @@
 package utils;
 
-import entities.Crabby;
-import main.Game;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;

@@ -261,13 +261,11 @@ public class Player extends Entity {
 
         if (currentHealth <= 0) {
             currentHealth = 0;
-            // gameOver();
         }else if (currentHealth >= maxHealth)
             currentHealth = maxHealth;
     }
 
     private void loadAnimations() {
-
         BufferedImage img = LoadSave.getSpriteAtlas(LoadSave.PLAYER_ATLAS);
 
         animations = new BufferedImage[12][9];

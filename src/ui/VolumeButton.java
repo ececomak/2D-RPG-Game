@@ -46,7 +46,6 @@ public class VolumeButton extends PauseButton {
     public void draw(Graphics g) {
         g.drawImage(slider, x, y, width, height, null);
         g.drawImage(imgs[index], buttonX - VOLUME_WIDTH / 2, y, VOLUME_WIDTH, height, null);
-
     }
 
     public void changeX(int x) {
@@ -80,4 +79,5 @@ public class VolumeButton extends PauseButton {
     public void setMousePressed(boolean mousePressed) {
         this.mousePressed = mousePressed;
     }
+
 }

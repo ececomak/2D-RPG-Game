@@ -42,7 +42,7 @@ public abstract class Enemy extends Entity{
         if (CanMoveHere(hitbox.x, hitbox.y + fallSpeed, hitbox.width, hitbox.height, lvlData)) {
             hitbox.y += fallSpeed;
             fallSpeed += gravity;
-        }else {
+        } else {
             inAir = false;
             hitbox.y = GetEntityYPosUnderRoofOrAboveFloor(hitbox, fallSpeed);
             tileY = (int) (hitbox.y / Game.TILES_SIZE);
@@ -91,7 +91,6 @@ public abstract class Enemy extends Entity{
         int absValue = (int) Math.abs(player.hitbox.x - hitbox.x);
         return absValue <= attackDistance;
     }
-
 
     protected void newState(int enemyState) {
         this.enemyState = enemyState;

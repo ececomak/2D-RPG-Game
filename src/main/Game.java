@@ -3,7 +3,6 @@ package main;
 import gamestates.Gamestate;
 import gamestates.Playing;
 import gamestates.Menu;
-import utils.LoadSave;
 
 import java.awt.Graphics;
 
@@ -79,7 +78,7 @@ public class Game implements Runnable {
     public void run() {  // for our game loop. we made it very stable.
 
         double timePerFrame = 1000000000.0 / FPS_SET; /* The duration length each of our
-         frames should last. */
+        frames should last. */
         double timePerUpdate = 1000000000.0 / UPS_SET;
 
         long previousTime = System.nanoTime();

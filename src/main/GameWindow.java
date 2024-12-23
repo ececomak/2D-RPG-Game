@@ -1,4 +1,3 @@
-
 package main;
 
 import java.awt.event.WindowEvent;
@@ -13,7 +12,7 @@ public class GameWindow {
 
         frame = new JFrame();
 
-        frame.setTitle("2D GAME");
+        frame.setTitle("Ninja's Escape");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(gamePanel);
         frame.setResizable(false);
