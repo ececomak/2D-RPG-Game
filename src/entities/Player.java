@@ -17,7 +17,7 @@ public class Player extends Entity {
     private int aniTick, aniIndex, aniSpeed = 25;
     private int playerAction = IDLE;
     private boolean moving = false, attacking = false;
-    private boolean left, up, right, down, jump;
+    private boolean left, right, jump;
     private float playerSpeed = 1.0f * Game.SCALE;
     private int[][] lvlData;
     private float xDrawOffset = 125 * Game.SCALE;
@@ -79,7 +79,15 @@ public class Player extends Entity {
         updateHealthBar();
 
         if(currentHealth <= 0) {
-            playing.setGameOver(true);
+            if(playerAction != DEAD) {
+                playerAction = DEAD;
+                aniTick = 0;
+                aniIndex = 0;
+                playing.setPlayerDying(true);
+            } else if(aniIndex == getSpriteAmount(DEAD) - 1 && aniTick >= aniSpeed - 1) {
+                playing.setGameOver(true);
+            } else
+                updateAnimationTick();
             return;
         }
 
@@ -280,44 +288,18 @@ public class Player extends Entity {
     public void resetDirBooleans() {
         left = false;
         right = false;
-        up = false;
-        down = false;
     }
 
     public void setAttacking(boolean attacking) {
         this.attacking = attacking;
     }
 
-    public boolean isLeft() {
-        return left;
-    }
-
     public void setLeft(boolean left) {
         this.left = left;
     }
 
-    public boolean isUp() {
-        return up;
-    }
-
-    public void setUp(boolean up) {
-        this.up = up;
-    }
-
-    public boolean isRight() {
-        return right;
-    }
-
     public void setRight(boolean right) {
         this.right = right;
-    }
-
-    public boolean isDown() {
-        return down;
-    }
-
-    public void setDown(boolean down) {
-        this.down = down;
     }
 
     public void setJump(boolean jump) {
@@ -338,4 +320,5 @@ public class Player extends Entity {
         if(!IsEntityOnFloor(hitbox, lvlData))
             inAir = true;
     }
+
 }

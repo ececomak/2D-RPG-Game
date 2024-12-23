@@ -2,6 +2,7 @@ package levels;
 
 import entities.Crabby;
 import main.Game;
+import utils.HelpMethods;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

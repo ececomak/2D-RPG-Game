@@ -4,16 +4,12 @@ import entities.Crabby;
 import main.Game;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-
-import static utils.Constants.EnemyConstants.CRABBY;
 
 public class LoadSave {
 
@@ -32,6 +28,7 @@ public class LoadSave {
     public static final String CRABBY_SPRITE = "EnemyCharacters/crabby_sprite.png";
     public static final String STATUS_BAR = "OutsideSprites/health_power_bar.png";
     public static final String COMPLETED_IMG = "OutsideSprites/completed_sprite.png";
+    public static final String DEATH_SCREEN = "OutsideSprites/death_screen.png";
 
     public static BufferedImage getSpriteAtlas(String fileName) {
         BufferedImage spriteSheet = null;
